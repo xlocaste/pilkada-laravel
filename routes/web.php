@@ -27,7 +27,7 @@ Route::middleware('auth')->group(function () {
 
     Route::prefix('/partai')->name('partai.')->group(function () {
         Route::post('/tambah', PartaiStoreController::class)->name('store');
-        Route::post('/', PartaiIndexController::class)->name('partai');
+        Route::get('/', PartaiIndexController::class)->name('index');
     });
 });
 
