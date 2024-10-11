@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\Partai\IndexController as PartaiIndexController;
+use App\Http\Controllers\Api\Partai\StoreController as PartaiStoreController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -26,6 +27,10 @@ Route::middleware('auth')->group(function () {
 
     Route::prefix('/partai')->name('partai.')->group(function () {
         Route::get('/', PartaiIndexController::class)->name('index');
+        Route::get('/tambah', function () {
+            return Inertia::render('Partai/Tambah');
+        })->name('tambah');
+        Route::post('/tambah', PartaiStoreController::class)->name('store');
     });
 });
 
