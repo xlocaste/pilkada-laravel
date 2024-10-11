@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\Api\Partai\StoreController as PartaiStoreController;
 use App\Http\Controllers\Api\Partai\IndexController as PartaiIndexController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
@@ -26,7 +25,6 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     Route::prefix('/partai')->name('partai.')->group(function () {
-        Route::post('/tambah', PartaiStoreController::class)->name('store');
         Route::get('/', PartaiIndexController::class)->name('index');
     });
 });

@@ -10,11 +10,7 @@ class IndexController extends Controller
 {
     public function __invoke()
     {
-        $partai = Partai::select([
-            'id',
-            'nama',
-            'image',
-        ])->paginated(10);
+        $partai = Partai::all();
 
         return Inertia::render('Partai/List', [
             'partai' => $partai
