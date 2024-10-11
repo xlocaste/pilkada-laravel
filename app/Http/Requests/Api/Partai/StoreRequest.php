@@ -11,9 +11,6 @@ class StoreRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        if ($this->authorizationUserAccess())
-            return false;
-
         return auth()->check();
     }
 
