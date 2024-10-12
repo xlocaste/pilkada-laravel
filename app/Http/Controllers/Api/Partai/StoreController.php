@@ -12,9 +12,16 @@ class StoreController extends Controller
 {
     public function __invoke(StoreRequest $request): Response
     {
+        $path = null;
+
+        if ($request->hasFile('image')) {
+
+            $path = $request->file('image')->store('images/partai', 'public');
+        }
+
         $partai = Partai::create(attributes:[
             'nama' => $request -> nama,
-            'image' => $request -> image,
+            'image' => $path
         ]);
 
         return Inertia::render('Partai/Tambah', [
