@@ -9,7 +9,7 @@ class Paslon extends Model
 {
     use HasFactory;
 
-    protected $table = ['paslon'];
+    protected $table = 'paslon';
 
     protected $fillable = [
         'nama',
