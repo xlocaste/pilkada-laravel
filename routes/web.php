@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\Partai\IndexController as PartaiIndexController;
+use App\Http\Controllers\Api\Paslon\IndexController as PaslonIndexController;
 use App\Http\Controllers\Api\Partai\StoreController as PartaiStoreController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
@@ -31,6 +32,10 @@ Route::middleware('auth')->group(function () {
             return Inertia::render('Partai/Tambah');
         })->name('tambah');
         Route::post('/tambah', PartaiStoreController::class)->name('store');
+    });
+
+    Route::prefix('/paslon')->name('paslon.')->group(function () {
+        Route::get('/', PaslonIndexController::class)->name('index');
     });
 });
 
